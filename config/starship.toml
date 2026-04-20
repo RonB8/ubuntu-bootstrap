@@ -1,0 +1,58 @@
+# Starship prompt configuration
+# Docs: https://starship.rs/config/
+
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+[░▒▓](fg:#a3aed2)\
+[$directory](bg:#a3aed2 fg:#090c0c bold)\
+[](fg:#a3aed2 bg:#769ff0)\
+[$git_branch$git_status](bg:#769ff0 fg:#090c0c bold)\
+[](fg:#769ff0 bg:#394260)\
+[$rust$docker_context](bg:#394260 fg:#ffffff)\
+[](fg:#394260 bg:#212736)\
+[$time](bg:#212736 fg:#a0a9cb)\
+[ ](fg:#212736)\
+\n$character"""
+
+[directory]
+style = "bg:#a3aed2 fg:#090c0c"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"Documents" = "󰈙"
+"Downloads" = " "
+"Music"     = " "
+"Pictures"  = " "
+
+[git_branch]
+symbol = " "
+style  = "bg:#769ff0"
+format = '[[ $symbol $branch ](fg:#090c0c bold bg:#769ff0)]($style)'
+
+[git_status]
+style  = "bg:#769ff0"
+format = '[[($all_status$ahead_behind )](fg:#090c0c bg:#769ff0)]($style)'
+
+[rust]
+symbol = " "
+style  = "bg:#394260"
+format = '[[ $symbol ($version) ](fg:#ffffff bg:#394260)]($style)'
+
+[docker_context]
+symbol = " "
+style  = "bg:#394260"
+format = '[[ $symbol $context ](fg:#ffffff bg:#394260)]($style)'
+only_with_files = true
+
+[time]
+disabled      = false
+time_format   = "%H:%M"
+style         = "bg:#212736"
+format        = '[[  $time ](fg:#a0a9cb bg:#212736)]($style)'
+
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol   = "[❯](bold red)"
