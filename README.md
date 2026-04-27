@@ -41,7 +41,7 @@ Manually configuring a new server is error-prone and time-consuming. This projec
 
 ```bash
 # 1. Clone the repository onto your server
-git clone https://github.com/your-org/ubuntu-dev-setup.git
+git clone https://github.com/ronb8/ubuntu-bootstrap.git
 cd ubuntu-dev-setup
 
 # 2. Make scripts executable
